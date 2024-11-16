@@ -23,19 +23,19 @@ body {
 
 header .container {
     display: flex;
-    flex-direction: row; /* coloca o menu ao lado da logo */
-    align-items: center; /* alinhando o menu ao centro do container */
-    justify-content: space-between; /* adicionando um espaço entre o menu e a logo */    
+    flex-direction: row; 
+    align-items: center;
+    justify-content: space-between;   
 }
 
 .logo {
-    max-width: 168px; /* tamanho da logo na tela */
-    margin-left: 5px; /* espaçamento entre o lado esquerdo da tela e a logo */
+    max-width: 168px;
+    margin-left: 5px;
 }
 
 header nav a {
-    text-decoration: none; /* removendo o sublinhado do link dos menus */
-    margin-right: 10px; /* espaçamento entre o menu e o lado direito da tela e ente eles */
+    text-decoration: none;
+    margin-right: 10px;
     color: var(--color-text-main);
 }
 
@@ -46,9 +46,9 @@ header nav a:hover {
 /* elementos do filme principal */
 .main-movie {
     font-size: 16px;
-    background: linear-gradient(rgba(0,0,0,0.50),rgba(0,0,0,0.50)100%), url('/src/assets/img/capa-house.jpg');
-    height: 400px;
     background-size: cover;
+    background-position: center;
+    height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -119,6 +119,10 @@ header nav a:hover {
 .baseboard a {
     color: var(--color-text-primary);
 }
+
+.baseboard p {
+    margin-bottom: 10px; 
+}
 /* fim da estilização do footer */
 
 /* responsivo */
@@ -138,4 +142,133 @@ header nav a:hover {
     .description {
         width: 50%;
     }
+}
+
+/* Caixa de busca */
+.search-container {
+    display: flex;
+    justify-content: center;
+
+}
+
+.search-box {
+    padding: 10px;
+    font-size: 16px;
+    width: 300px;
+    border: 1px;
+    border-radius: 3px;
+    background-color: transparent;
+    color: var(--color-text-primary);
+    position: relative;
+    margin-right: 20px;
+}
+
+/* Quando o input estiver em foco */
+.search-box:focus {
+    outline: none;
+    border-color: var(--color-text-title);
+}
+
+/* Placeholder */
+.search-box::placeholder {
+    color: var(--color-text-main);
+}
+
+/* Ícone da lupa dentro do input */
+.search-box i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-main);
+    cursor: pointer;
+}
+
+/* Ajustes para dispositivos menores */
+@media screen and (max-width: 768px) {
+    .search-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search-box {
+        width: 250px;
+        margin-right: 0;
+    }
+}
+
+/* Estilos para o popup */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.3s ease;
+}
+
+.popup.hidden {
+    display: none;
+}
+
+.popup-content {
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 800px;
+    display: flex;
+    gap: 20px;
+}
+
+.popup-left img {
+    width: 300px;
+    border-radius: 10px;
+}
+
+.popup-right {
+    flex: 1;
+}
+
+.popup-right h2 {
+    color: var(--color-text-title);
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.popup-right p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: var(--color-text-main);
+}
+
+.popup-right ul {
+    list-style: none;
+    padding: 0;
+    font-size: 14px;
+}
+
+.popup-right ul li {
+    margin-bottom: 10px;
+}
+
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 30px;
+    cursor: pointer;
+    color: var(--color-text-title);
+    transition: color 0.3s ease;
+}
+
+.close-button:hover {
+    color: var(--color-text-main);
 }

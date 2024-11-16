@@ -6,11 +6,9 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="/src/styles/style.css">
-
-    <!-- linkando os arquivos Owl Carousel 2 css -->
-    <link rel="stylesheet" href="/src/styles/carousel-owl/owl.carousel.min.css">
-    <link rel="stylesheet" href="/src/styles/carousel-owl/owl.theme.default.min.css">
+    <link rel="stylesheet" href="src/styles/style.css">
+    <link rel="stylesheet" href="src/styles/carousel-owl/owl.carousel.min.css">
+    <link rel="stylesheet" href="src/styles/carousel-owl/owl.theme.default.min.css">
 
     <script src="https://kit.fontawesome.com/b357c29d3a.js" crossorigin="anonymous"></script>
     
@@ -19,23 +17,34 @@
 <body>
     <!-- dados referente ao menu da página -->
     <header>
-        <div class="container">            
-            <img src="/src/assets/img/logo_netflix.png" alt="Logo Netflix" class="logo">            
+        <div class="container">
+            <img src="src/assets/img/logo_netflix.png" alt="Logo Netflix" class="logo">
             <nav>
-                <a href="#">Início</a>
-                <a href="#">Séries</a>
-                <a href="#">Filmes</a>
-                <a href="#">Documentários</a>
+                <a href="#" id="home-link">Início</a>
+                <a href="#" id="series-link">Séries</a>
+                <a href="#" id="movies-link">Filmes</a>
+                <a href="#" id="documentaries-link">Documentários</a>
             </nav>
+            <div class="search-container">
+                <form id="search-form">
+                    <div class="search-box">
+                        <input type="text" id="search-input" class="search-box" placeholder="Buscar filmes...">
+                        <i class="fas fa-search" id="search-btn"></i> <!-- Lupa dentro do input -->
+                    </div>
+                </form>
+            </div>
         </div>
-    </header>
+    </header>  
 
     <!-- dados referente ao filme principal mostrado na página -->
     <main>
         <div class="main-movie">
             <div class="container">
-                <h3 class="title-movie">HOUSE OF CARDS</h3>
-                <p class="description">Nada pode impedir o político sem escrúpulos Frank Underwood de conquistar Washington. Assista agora a nova temporada de House of Cards que está imperdível.</p>
+                <!-- O título do filme será preenchido dinamicamente -->
+                <h3 class="title-movie">FILME PRINCIPAL</h3>
+                <!-- A descrição do filme será preenchida dinamicamente -->
+                <p class="description">Descrição do filme principal será preenchida aqui.</p>
+                <!-- Botões de Ação -->
                 <div class="buttons">
                     <button role="button" class="button">
                         <i class="fas fa-play"></i>
@@ -47,53 +56,38 @@
                     </button>
                 </div>
             </div>
-        </div>        
-    </main>
+        </div>
+    </main>    
 
     <div class="carousel-movie">
         <div class="owl-carousel owl-theme">
-            <div class="item">
-                <img class="box-movie" src="/src/assets/img/mini1.jpg" alt="" srcset="">
-            </div>
-            <div class="item">
-                <img class="box-movie" src="/src/assets/img/mini2.jpg" alt="" srcset="">
-            </div>
-            <div class="item">
-                <img class="box-movie" src="/src/assets/img/mini3.jpg" alt="" srcset="">
-            </div>
-            <div class="item">
-                <img class="box-movie" src="/src/assets/img/mini4.jpg" alt="" srcset="">
-            </div>
-            <div class="item">
-                <img class="box-movie" src="/src/assets/img/mini5.jpg" alt="" srcset="">
-            </div>
-            <div class="item">
-                <img class="box-movie" src="/src/assets/img/mini6.jpg" alt="" srcset="">
-            </div>
-            <div class="item">
-                <img class="box-movie" src="/src/assets/img/mini7.jpg" alt="" srcset="">
-            </div>
-            <div class="item">
-                <img class="box-movie" src="/src/assets/img/mini8.jpg" alt="" srcset="">
-            </div>
-            <div class="item">
-                <img class="box-movie" src="/src/assets/img/mini9.jpg" alt="" srcset="">
-            </div>
-            <div class="item">
-                <img class="box-movie" src="/src/assets/img/mini10.jpg" alt="" srcset="">
-            </div>
+            <!-- Resultados de filmes serão inseridos aqui -->
         </div>        
     </div>
 
-    <!-- linkando os arquivos Owl Carousel 2 js -->
-    <script src="/src/scripts/carousel-owl/jquery.min.js"></script>
-    <script src="/src/scripts/carousel-owl/owl.carousel.min.js"></script>
-    <script src="/src/scripts/carousel-owl/setup.js"></script>
+    <div id="movie-popup" class="popup hidden">
+        <div class="popup-content">
+            <div class="popup-left">
+                <img id="popup-poster" alt="Poster do Filme">
+            </div>
+            <div class="popup-right">
+                <h2 id="popup-title">Título do Filme</h2>
+                <p id="popup-overview">Descrição do filme</p>
+                <ul id="popup-details"></ul>
+            </div>
+            <span id="close-popup" class="close-button">&times;</span>
+        </div>
+    </div>
+
+    <script src="src/scripts/carousel-owl/jquery.min.js"></script>
+    <script src="src/scripts/carousel-owl/owl.carousel.min.js"></script>
+    <script src="src/scripts/carousel-owl/setup.js"></script>
+
+    <script src="src/scripts/script.js"></script>
 
     <footer class="baseboard">
-        <p>Clone da Interface da Netflix desenvolvido junto a <a target="_blank" href="https://digitalinnovation.one/" rel="noopener noreferrer">Digital Innovation One</a></p>        
-        <p>Repositório <a target="_blank" href="https://github.com/Pleiterson/clone-interface-netflix-html-css-js" rel="noopener noreferrer"> GitHub </a>deste projeto</p><br>
-        <p>Desenvolvido por <a target="_blank" href="https://pleiterson.vercel.app/" rel="noopener noreferrer">Pleiterson Amorim</a></p>
+        <p>Projeto Netflix desenvolvido por <a target="_blank" href="https://bruno.caminhosdigitais.cloud/" rel="noopener noreferrer">Bruno Lobato</a></p>       
+        <p>API usada no projeto <a target="_blank" href="https://developer.themoviedb.org/docs/getting-started/" rel="noopener noreferrer">The Movie DB</a></p>
     </footer>
 </body>
 </html>
